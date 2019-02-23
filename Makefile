@@ -1,5 +1,5 @@
-all: hello_world.o
-	ld -o hello_world hello_world.o -melf_i386
+all: build/hello_world.o
+	ld -o build/hello_world build/hello_world.o -melf_i386
 
-hello_world.o: hello_world.asm
-	nasm -f elf hello_world.asm
+build/hello_world.o: src/hello_world.asm src/macros.asm
+	nasm -f elf src/hello_world.asm -o build/hello_world.o
