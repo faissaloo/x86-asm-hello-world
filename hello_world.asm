@@ -15,10 +15,10 @@
 %endmacro
 
 ; define_string label string
-; Defines the string and saves the length in a macro called <label>_length
+; Defines the string and saves the length in a macro called <label>.length
 %macro define_string 2
   %1 db %2
-  %strlen %1_length %2
+  %strlen %1.length %2
 %endmacro
 
 ; print_clobber string, length, return_address
@@ -27,7 +27,7 @@
   set eax, sys_write
   set ebx, stdout
   set ecx, %1
-  set edx, %1_length
+  set edx, %1.length
   push %2
   lea ebp, [esp-12]
   sysenter
