@@ -3,7 +3,7 @@ section	.data
   message_length equ $ - message
 
   stdout equ 1
-  
+
   sys_exit equ 1
   sys_write equ 4
 
@@ -19,6 +19,7 @@ section	.data
   sysenter
 %endmacro
 
+; exit
 %macro exit 0
   mov eax, sys_exit
   mov ebp, esp
