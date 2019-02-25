@@ -18,9 +18,10 @@
   mov ebx, stdout
   mov ecx, %1
   mov edx, %1.length
-  push %2
-  lea ebp, [esp-12]
+  mov ebp, _clobberField-12
   sysenter
+_clobberField:
+  dd _exit
 %endmacro
 
 ; exit
